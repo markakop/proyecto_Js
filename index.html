@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Proyecto</title>
+  <script src="funciones.js"></script>
+  <link rel="canonical" href="cover.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    iframe{
+      margin: 1em;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+  <link href="cover.css" rel="stylesheet">
+
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">GIFS</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link active" aria-current="page" href="#">Incio</a>
+          <a class="nav-link" href="buscar.html" >Buscar GIFS</a>
+          <a class="nav-link" href="subir.html">Subir GIFS</a>
+        </nav>
+      </div>
+    </header>
+
+
+
+
+    <h1>EL MUSEO DE LOS GIFS</h1>
+    <p class="lead">Bienvenidos
+    </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <iframe id="bienvenido1" src="" frameborder="0" height="400"></iframe>
+        </div>
+        <div class="col-4">
+          <iframe id="bienvenido2" src="" frameborder="0" height="400"></iframe>
+        </div>
+        <div class="col-4">
+          <iframe id="bienvenido3" src="" frameborder="0" height="400"></iframe>
+        </div>
+      </div>
+    </div>
+  
+    <footer class="mt-auto text-white-50">
+      <p>Diseñada por: Marcos y David agradecimientos a <a href="https://getbootstrap.com/" target="_blank"
+          class="text-white">Bootstrap</a>, y <a href="https://giphy.com" target="_blank" class="text-white">GIPHY</a>.
+      </p>
+    </footer>
+
+  </div>
+  <script>
+    const numero1 = Math.floor(Math.random() * 25);
+    const numero2 = Math.floor(Math.random() * 25);
+    const numero3 = Math.floor(Math.random() * 25);
+    aleatorio("bienvenido")
+      .then((respuesta) => {
+        const gifs = respuesta.data;
+        //console.log(gifs);
+        //console.log(gifs[numero].embed_url);
+        let div1 = document.getElementById("bienvenido1");
+        let div2 = document.getElementById("bienvenido2");
+        let div3 = document.getElementById("bienvenido3");
+        div1.src = (gifs[numero1].embed_url);
+        div2.src = (gifs[numero2].embed_url);
+        div3.src = (gifs[numero3].embed_url);
+      })
+      .catch((error) => {
+        console.error("Error al obtener gifs:", error);
+      });
+  </script>
+
+
+</body>
+
+</html>
