@@ -18,7 +18,7 @@
 
 <body class="d-flex h-100 text-center text-white bg-dark">
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="wrapper">
 
 
         <header class="mb-auto">
@@ -28,20 +28,26 @@
                     <a class="nav-link " aria-current="page" href="index.html">Incio</a>
                     <a class="nav-link active" aria-current="page" href="#">Buscar GIFS</a>
                     <a class="nav-link" href="subir.html">Subir GIFS</a>
+                    <a class="nav-link" href="juegos.html">Juegos</a>
                 </nav>
             </div>
         </header>
 
-        <h1>Buscar GIFs</h1>
-        <div class="active-cyan-3 active-cyan-4 mb-4 mt-4">
-            <input class="form-control" type="text" id="tag" placeholder="Buscar Gifs" aria-label="Buscar Gifs">
-            <button class="btn bg-danger mt-2" type="button" id="buscador">Buscar</button>
-        </div>
-        <div class="container">
-            <div class="row" id="resultado">
+        <main>
 
+            <h1>Buscar GIFs</h1>
+            <div class="active-cyan-3 active-cyan-4 mb-4 mt-4">
+                <input class="form-control" type="text" id="tag" placeholder="Buscar Gifs" aria-label="Buscar Gifs">
+                <button class="btn bg-danger mt-2" type="button" id="buscador">Buscar</button>
             </div>
-        </div>
+            <div class="container">
+                <div class="row" id="resultado">
+
+                </div>
+            </div>
+
+        </main>
+
 
         <footer class="mt-auto text-white-50 ">
             <p>Diseñada por: Marcos y David agradecimientos a <a href="https://getbootstrap.com/" target="_blank"
@@ -56,9 +62,15 @@
         let resultado = document.getElementById("resultado");
 
         document.getElementById("buscador").addEventListener("click", (e) => {
-            aleatorio(tag.value, 12)
+            aleatorio(tag.value, 9)
                 .then((respuesta) => {
                     resultado.innerHTML = "";
+
+                    if (respuesta.pagination.count == 0) {
+                        let h2 = document.createElement("h2");
+                        h2.innerHTML = "No se encontraron resultados";
+                        resultado.appendChild(h2);
+                    }
                     const gifs = respuesta.data;
 
                     for (const gif of gifs) {

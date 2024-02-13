@@ -25,33 +25,39 @@
       <div>
         <h3 class="float-md-start mb-0">GIFS</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link active" aria-current="page" href="#">Incio</a>
+          <a class="nav-link" href="index.html">Incio</a>
           <a class="nav-link" href="buscar.html">Buscar GIFS</a>
           <a class="nav-link" href="subir.html">Subir GIFS</a>
-          <a class="nav-link" href="juegos.html">Juegos</a>
+          <a class="nav-link active"  aria-current="page" href="#">Juegos</a>
         </nav>
       </div>
     </header>
 
 
+    <main>
 
+        <h1>Juego de memoria!!</h1>
 
-    <h1>EL MUSEO DE LOS GIFS</h1>
-    <p class="lead">Bienvenidos
-    </p>
-    <div class="container">
-      <div class="row">
-        <div class="col-4">
-          <iframe id="bienvenido1" src="" frameborder="0" height="400"></iframe>
+        <div class="container mt-3">
+            <div class="row" id="contenido">
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+                <div class="col-3">1</div>
+            </div>
         </div>
-        <div class="col-4">
-          <iframe id="bienvenido2" src="" frameborder="0" height="400"></iframe>
-        </div>
-        <div class="col-4">
-          <iframe id="bienvenido3" src="" frameborder="0" height="400"></iframe>
-        </div>
-      </div>
-    </div>
+
+    </main>
+
+    
 
     <footer class="mt-auto text-white-50">
       <p>Diseñada por: Marcos y David agradecimientos a <a href="https://getbootstrap.com/" target="_blank"
@@ -61,24 +67,8 @@
 
   </div>
   <script>
-    const numero1 = Math.floor(Math.random() * 25);
-    const numero2 = Math.floor(Math.random() * 25);
-    const numero3 = Math.floor(Math.random() * 25);
-    aleatorio("bienvenido")
-      .then((respuesta) => {
-        const gifs = respuesta.data;
-        //console.log(gifs);
-        //console.log(gifs[numero].embed_url);
-        let div1 = document.getElementById("bienvenido1");
-        let div2 = document.getElementById("bienvenido2");
-        let div3 = document.getElementById("bienvenido3");
-        div1.src = (gifs[numero1].embed_url);
-        div2.src = (gifs[numero2].embed_url);
-        div3.src = (gifs[numero3].embed_url);
-      })
-      .catch((error) => {
-        console.error("Error al obtener gifs:", error);
-      });
+    
+
   </script>
 
 
