@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -16,14 +16,14 @@
 
 </head>
 
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body class="text-center text-white bg-dark">
 
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
 
     <header class="mb-auto">
       <div>
-        <h3 class="float-md-start mb-0">GIFS</h3>
+        <h3 class="float-md-start mb-0"><a class="nav-link active" aria-current="page" href="#">GIFS</a></h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
           <a class="nav-link active" aria-current="page" href="#">Incio</a>
           <a class="nav-link" href="buscar.html">Buscar GIFS</a>
@@ -32,7 +32,6 @@
         </nav>
       </div>
     </header>
-
 
 
 
@@ -61,10 +60,14 @@
 
   </div>
   <script>
-    const numero1 = Math.floor(Math.random() * 25);
-    const numero2 = Math.floor(Math.random() * 25);
-    const numero3 = Math.floor(Math.random() * 25);
-    aleatorio("welcome")
+    
+    var numeros = new Set();
+
+    while (numeros.size < 3)
+      numeros.add(Math.floor(Math.random() * 25))
+
+    numeros = Array.from(numeros);
+    aleatorio("bienvenido")
       .then((respuesta) => {
         const gifs = respuesta.data;
         //console.log(gifs);
@@ -72,13 +75,15 @@
         let div1 = document.getElementById("bienvenido1");
         let div2 = document.getElementById("bienvenido2");
         let div3 = document.getElementById("bienvenido3");
-        div1.src = (gifs[numero1].embed_url);
-        div2.src = (gifs[numero2].embed_url);
-        div3.src = (gifs[numero3].embed_url);
+        div1.src = (gifs[numeros[0]].embed_url);
+        div2.src = (gifs[numeros[1]].embed_url);
+        div3.src = (gifs[numeros[2]].embed_url);
       })
       .catch((error) => {
         console.error("Error al obtener gifs:", error);
       });
+
+
   </script>
 
 

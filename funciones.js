@@ -20,4 +20,8 @@ function subir(url){
         .then((respuesta) => respuesta.json())
         .then((json) => json);
 }
+  
+ 
 
+  // Llamar a la función inicialmente
+  //toggleHtmlClass();

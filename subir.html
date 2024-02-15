@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -16,14 +16,14 @@
 
 </head>
 
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body class="text-center text-white bg-dark">
 
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
 
     <header class="mb-auto">
       <div>
-        <h3 class="float-md-start mb-0">GIFS</h3>
+        <h3 class="float-md-start mb-0"><a class="nav-link active" aria-current="page" href="index.html">GIFS</a></h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
           <a class="nav-link" href="index.html">Incio</a>
           <a class="nav-link" href="buscar.html">Buscar GIFS</a>
@@ -42,7 +42,7 @@
       <button class="btn bg-danger mt-2" type="button" id="subir">Subir</button>
     </div>
 
-    <div id="subido" class="text-center"></div>
+    <div id="subido"></div>
 
 
     <footer class="mt-auto text-white-50">
@@ -60,6 +60,7 @@
     document.getElementById("subir").addEventListener("click", (e) => {
       subir(url_gif.value)
         .then((respuesta) => {
+          subido.innerHTML = "";  
           let rest = respuesta.meta.msg;
           if (rest == "OK"){ 
             let h1 = document.createElement("h1");
@@ -68,8 +69,14 @@
 
             let frame = document.createElement("iframe");
             frame.src = url_gif.value;
-            frame.width = "500";
+            frame.width = "100%";
+            frame.height = "500";
             subido.appendChild(frame);
+          }
+          else {
+            let h1 = document.createElement("h1");
+            h1.innerHTML = "Error al subir el GIF, por favor pase un link bien, que no es tan dificil pedazo de tonto.";
+            subido.appendChild(h1);
           }
         })
     });
