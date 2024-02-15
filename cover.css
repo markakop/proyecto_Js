@@ -22,7 +22,19 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 55em;
+}
+
+
+html,
+body {
+  height: 100%;
+  overflow: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -71,5 +83,5 @@ iframe{
   height: auto;
 }
 div {
-  justify-content: center;
+  text-align: center;
 }
